@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'package:mrecadoabertonovo/componentes/cardfrete.dart';
+import 'componentes/campopesquisa.dart';
+import 'componentes/cardas.dart';
+import 'componentes/botaoicon.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -50,48 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         actions: [
-          Container(
-            width: MediaQuery.of(context).size.width - 110,
-            padding: const EdgeInsets.only(top: 10),
-            child: TextField(
-              onSubmitted: (test) => {},
-              decoration: const InputDecoration(
-                isDense: true,
-                contentPadding: EdgeInsets.only(top: 5),
-                filled: true,
-                fillColor: Colors.white,
-                hintText: "Buscar no Mercado Aberto",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Color(0xffffdb15),
-                    width: 0,
-                  ),
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.0),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          campopesquisa(),
+          
           Padding(padding: EdgeInsets.all(6)),
           Padding(
             padding: EdgeInsets.only(top: 10),
@@ -148,81 +111,28 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const Padding(padding: EdgeInsets.all(5)),
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                gradient: const LinearGradient(
-                    begin: Alignment.centerLeft,
-                    end: Alignment.centerRight,
-                    colors: [Color(0xffaa0f91), Color(0xff171955)]),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
-                    spreadRadius: 0.5,
-                    blurRadius: 2,
-                    offset: const Offset(0, 1.5),
-                  )
-                ],
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Assine o nível 6 por R\$ 9,90/mês!",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Icon(
-                    Icons.chevron_right,
-                    color: Colors.white,
-                  )
-                ],
-              ),
-            ),
+           cardas(),
             const Padding(padding: EdgeInsets.all(5)),
-            Container(
-              padding: const EdgeInsets.only(
-                top: 5,
-                bottom: 5,
-              ),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.4),
-                    spreadRadius: 0.5,
-                    blurRadius: 2,
-                    offset: const Offset(0, 1.5),
-                  )
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.local_shipping_outlined,
-                    color: Color(0xff43b176),
-                  ),
-                  Text(
-                    " Frete Grátis",
-                    style: TextStyle(
-                      color: Color(0xff43b176),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12,
-                    ),
-                  ),
-                  Text(
-                    " em milhões de produtos a partir de RS79",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 12,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            cardfrete(),
             const Padding(padding: EdgeInsets.all(10)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+                botaoicon(icone: Icons.phone_android_rounded),
+                botaoicon(icone: Icons.local_offer_outlined),
+                botaoicon(icone: Icons.shopping_basket_outlined),
+                botaoicon(icone: Icons.directions_car_outlined),
+                botaoicon(icone: Icons.add_box_outlined),
+            ],
+            ),
+           
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+               Text("ofertas"),
+              
+            ],
+            )
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
