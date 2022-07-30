@@ -117,25 +117,39 @@ class _MyHomePageState extends State<MyHomePage> {
             const Padding(padding: EdgeInsets.all(10)),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+
             children: [
-                botaoicon(icone: Icons.phone_android_rounded),
-                botaoicon(icone: Icons.local_offer_outlined),
-                botaoicon(icone: Icons.shopping_basket_outlined),
-                botaoicon(icone: Icons.directions_car_outlined),
-                botaoicon(icone: Icons.add_box_outlined),
+                BotaoCategoria(
+                  icone: Icons.smartphone,
+                  sub: "Regarregar"
+                ),
+                
+                BotaoCategoria(
+                  icone: Icons.sell_outlined,
+                  sub: "Ofertas"
+                ),
+
+                BotaoCategoria(
+                  icone: Icons.shopping_basket_outlined,
+                  sub: "Mercado"
+                ),
+
+                BotaoCategoria(
+                  icone: Icons.directions_car,
+                  sub: "Veiculos"
+                ),
+
+                BotaoCategoria(
+                  icone: Icons.add,
+                  sub: "Ver mais"
+                ),
+              ],)
             ],
             ),
            
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-               Text("ofertas"),
-              
-            ],
-            )
-          ],
+           
+
         ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      );// This trailing comma makes auto-formatting nicer for build methods.
   }
 }
