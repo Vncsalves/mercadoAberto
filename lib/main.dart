@@ -59,23 +59,20 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               onPressed: () {},
             )
-          ],
+          ],        
+        
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(20.0),
-              child: Row(
+              
+              child: Row(                
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 18),
-                    child: Icon(
-                      Icons.pin_drop_outlined,
-                      color: Colors.black,
-                      size: 19.0,
-                    ),
-                  ),
                   EnviarPara(),
                 ],
-              )),
+              )
+            ),   
+                      
         ),
+
         body: SingleChildScrollView(
           child: Center(
               child: Container(
@@ -83,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
-                    stops: [-15.0, 0.17],
+                    stops: [-15.0, 0.30],
                     colors: [Color(0xffffd740), Colors.white],
                   )),
                   child: Column(
@@ -105,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       cardassinatura(),
         
                       cardfretegratis(),   
+        
         
         
                       Padding(padding: EdgeInsets.only(top:25.0,)),
