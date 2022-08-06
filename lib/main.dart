@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'Componentes/CampoPesquisa.dart';
 import 'Componentes/Card_assinatura.dart';
 import 'Componentes/Card_frete_gratis.dart';
@@ -35,7 +36,12 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController controller = TextEditingController();
+  dynamic endereco = '';
+  var maskcep = MaskTextInputFormatter(mask: '#####-###'); 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,18 +69,71 @@ class _MyHomePageState extends State<MyHomePage> {
         
           bottom: PreferredSize(
               preferredSize: Size.fromHeight(20.0),
-              
-              child: Row(                
-                children: [
-                  EnviarPara(),
-                ],
-              )
-            ),   
+
+              child: 
+
+                   ListTile(
+                    leading: 
+                      IconButton(
+                        icon: const Icon(
+                        Icons.pin_drop_outlined,
+                        color: Colors.black,
+                        size: 19.0,
+                        ),
+                        onPressed: () {
+                          showDialog(
+                            context: context, 
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('Digite seu CEP'),
+                                content: TextField(
+                                  controller: controller,
+                                  inputFormatters: [maskcep],
+                                  decoration: InputDecoration(
+                                    hintText: 'Informe seu CEP',
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: Text('Cancelar'),
+                                    onPressed:(){
+                                      controller.clear();
+                                      Navigator.of(context).pop();
+                                    }
+                                  ),
+                                  TextButton(
+                                    child: Text('Okay'),
+                                    onPressed: () {
+                                      setState(() {
+                                        endereco = controller.text;
+                                      });
+                                      Navigator.of(context).pop(); 
+                                      }
+                                  )
+                                ],
+                              );
+                            }
+                          );
+                        },
+                      ),
                       
+                     title: Padding(
+                      padding: EdgeInsets.all(2),
+                      child: Text(
+                        "Enviar para : $endereco", 
+                        textAlign: TextAlign.left,
+                      ),
+                    )
+                  ),
+                  
+            ),                      
         ),
 
-        body: SingleChildScrollView(
+        body: 
+        SingleChildScrollView(
+          
           child: Center(
+            
               child: Container(
                   decoration: BoxDecoration(
                       gradient: LinearGradient(
