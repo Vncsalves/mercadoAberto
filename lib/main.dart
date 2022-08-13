@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:mrecadoabertonovo/componentes/cardfrete.dart';
 import 'componentes/campopesquisa.dart';
 import 'componentes/cardas.dart';
@@ -34,6 +35,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  late TextEditingController controller = TextEditingController();
+  dynamic endereco = '';
+  var maskcep = MaskTextInputFormatter(mask:'#####-###');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,12 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               children: const [
                 Padding(padding: EdgeInsets.all(5)),
-                Icon(
-                  Icons.pin_drop_outlined,
-                  size: 22,
+                ListTile(
+                  
                 ),
-                Padding(padding: EdgeInsets.all(5)),
-                Text("Enviar para"),
+              
               ],
             ),
           ),
