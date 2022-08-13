@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ],        
         
           bottom: PreferredSize(
-              preferredSize: Size.fromHeight(20.0),
+              preferredSize: Size.fromHeight(30.0),
 
               child: 
 

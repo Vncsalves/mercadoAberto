@@ -7,7 +7,7 @@ class CampoPesquisa extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width - (2 * 32) - (8 * 5),
-        padding: const EdgeInsets.only(top: 7),
+        padding: const EdgeInsets.only(top: 7,),
         child: TextField(
           decoration: InputDecoration(
               isDense: true,
